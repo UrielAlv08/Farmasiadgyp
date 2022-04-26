@@ -18,16 +18,17 @@ return new class extends Migration
             $table->string('nombre', 100);
             $table->decimal('compra', 10, 2);
             $table->decimal('venta', 10, 2);
-            $table->string('stock', 11);
+            $table->integer('stock');
             $table->timestamps();
-            $table->date('fecha_caducidad');
+            $table->date('fecha_caducidad')->default('2021-04-15');
             $table->string('codigo', 255);
-            $table->string('descripcion', 255);
-            $table->string('estado', 11);
+            $table->string('descripcion', 255)->nullable();
+            $table->integer('estado')->default(1);
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->unsignedBigInteger('laboratorio_id');
             $table->foreign('laboratorio_id')->references('id')->on('laboratorios');
+            $table->integer('archivado')->default(1);
         });
     }
 

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('laboratorios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre', 191);
+            $table->integer('archivado')->default(1);
             $table->timestamps();
         });
     }

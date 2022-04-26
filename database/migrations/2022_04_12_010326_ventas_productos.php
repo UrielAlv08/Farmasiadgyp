@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('venta_id')->references('id')->on('ventas');
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos');
-            $table->string('cantidad', 11);
+            $table->integer('cantidad');
             $table->decimal('compra', 8, 2);
             $table->decimal('venta', 8, 2);
             $table->timestamps();

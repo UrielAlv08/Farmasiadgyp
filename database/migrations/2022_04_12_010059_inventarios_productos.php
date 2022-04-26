@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
             $table->double('precio_compra');
             $table->double('precio_venta');
-            $table->string('cantidad', 11);
+            $table->integer('cantidad')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('inventario_id');
             $table->foreign('inventario_id')->references('id')->on('inventarios_generales');

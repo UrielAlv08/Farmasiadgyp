@@ -22,9 +22,10 @@ return new class extends Migration
             $table->decimal('cambio', 8, 2);
             $table->decimal('utilidad', 8, 2);
             $table->timestamps();
-            $table->string('tipo_venta', 11);
-            $table->string('apertura_id', 20);
-            $table->string('folio', 30);
+            $table->integer('tipo_venta')->default(0);
+            $table->unsignedBigInteger('apertura_id');
+            $table->foreign('apertura_id')->references('id')->on('aperturas_caja');
+            $table->string('folio', 30)->nullable();
         });
     }
 

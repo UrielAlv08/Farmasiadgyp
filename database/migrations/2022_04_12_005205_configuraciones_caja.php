@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('configuraciones_caja', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('apertura', 1);
+            $table->tinyInteger('apertura');
             $table->timestamps();
             $table->unsignedBigInteger('sucursal_id');
             $table->foreign('sucursal_id')->references('id')->on('sucursales');

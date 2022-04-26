@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('inventarios_generales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('usuario_id')->nullable();
             $table->foreign('usuario_id')->references('id')->on('users');
-            $table->string('txt_fecha_id', 11);
-            $table->string('productos_totales', 11);
-            $table->string('cantidad_productos', 11);
-            $table->float('precio_total', 12, 0);
-            $table->string('observaciones', 191);
+            $table->integer('txt_fecha_id')->nullable();
+            $table->integer('productos_totales')->nullable();
+            $table->integer('cantidad_productos')->nullable();
+            $table->float('precio_total', 12, 0)->nullable();
+            $table->mediumText('observaciones')->nullable();
             $table->timestamps();
-            $table->string('estatus', 4);
+            $table->tinyInteger('estatus')->nullable();
         });
     }
 

@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('inventarios_productos_generales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('producto_id');
+            $table->unsignedBigInteger('producto_id')->nullable();
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
-            $table->double('producto_compra', 22, 0);
-            $table->double('producto_venta', 22, 0);
-            $table->string('cantidad', 11);
+            $table->double('producto_compra', 22, 0)->nullable();
+            $table->double('producto_venta', 22, 0)->nullable();
+            $table->integer('cantidad')->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('inventario_general_id');
+            $table->unsignedBigInteger('inventario_general_id')->nullable();
             $table->foreign('inventario_general_id')->references('id')->on('inventarios_generales');
         });
     }

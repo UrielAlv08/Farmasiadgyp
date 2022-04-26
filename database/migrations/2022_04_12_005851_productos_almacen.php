@@ -17,9 +17,9 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos');
-            $table->unsignedBigInteger('sucursal_id');
+            $table->unsignedBigInteger('sucursal_id')->nullable();
             $table->foreign('sucursal_id')->references('id')->on('sucursales');
-            $table->string('cantidad', 11);
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

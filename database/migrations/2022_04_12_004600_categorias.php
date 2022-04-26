@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('categorias', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('nombre', 200);
-            $table->string('estado', 11);
-            $table->timestamps();
+            $table->integer('estado')->size(11)->default(1);
+            $table->bigInteger('categoria_id')->nullable();
             $table->string('tipo', 4);
+            $table->timestamps();
+
         });
     }
 
